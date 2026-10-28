@@ -3,285 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Upendra Bhandari</title>
 <meta name="description" content="Upendra Bhandari — Data Science Master's student in Sydney. Classification, forecasting, exploratory analysis and cloud data engineering.">
 <meta name="author" content="Upendra Bhandari">
- 
+<link rel="canonical" href="https://upendrabhandari.com.np/">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="Upendra Bhandari — Data Science">
 <meta property="og:description" content="Classification, forecasting and cloud data engineering. Sydney, Australia.">
 <meta property="og:url" content="https://upendrabhandari.com.np/">
 <meta name="twitter:card" content="summary">
- 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230A1012'/%3E%3Cpath d='M10 48 L54 18' stroke='%2352C7D4' stroke-width='3' fill='none'/%3E%3Ccircle cx='20' cy='40' r='3.5' fill='%23E3A13C'/%3E%3Ccircle cx='34' cy='36' r='3.5' fill='%2352C7D4'/%3E%3Ccircle cx='45' cy='20' r='3.5' fill='%2352C7D4'/%3E%3C/svg%3E">
- 
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..500&display=swap">
- 
-<style>
-/* Layout: a single measured column on a faint plot grid. Two signal hues carry meaning
-   throughout — cyan for study and model, amber for work and counter-class — so every
-   chart, bar and marker on the page reads from the same key. */
-:root{
-  --ground:#0A1012;
-  --panel:#111A1C;
-  --panel-2:#16211F;
-  --ink:#E9F0F0;
-  --muted:#8CA1A3;
-  --line:#223030;
-  --grid:#141F1E;
-  --sig-a:#52C7D4;
-  --sig-b:#E3A13C;
- 
-  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --f-body:"Newsreader",Georgia,"Times New Roman",serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
- 
-  --fs-display:clamp(2.9rem,10vw,6.4rem);
-  --fs-h2:clamp(1.5rem,3.4vw,2.1rem);
-  --fs-lede:clamp(1.08rem,2.2vw,1.32rem);
-  --fs-body:1.0625rem;
-  --fs-small:0.9375rem;
-  --fs-label:0.7rem;
- 
-  --wrap:1060px;
-  color-scheme:dark;
-}
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){
-    --ground:#F0F4F4;
-    --panel:#FFFFFF;
-    --panel-2:#F7FAFA;
-    --ink:#0F1819;
-    --muted:#57686A;
-    --line:#D7E0E0;
-    --grid:#E4EBEB;
-    --sig-a:#0B7683;
-    --sig-b:#A1660B;
-    color-scheme:light;
-  }
-}
-:root[data-theme="light"]{
-  --ground:#F0F4F4;
-  --panel:#FFFFFF;
-  --panel-2:#F7FAFA;
-  --ink:#0F1819;
-  --muted:#57686A;
-  --line:#D7E0E0;
-  --grid:#E4EBEB;
-  --sig-a:#0B7683;
-  --sig-b:#A1660B;
-  color-scheme:light;
-}
- 
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{
-  margin:0;
-  background-color:var(--ground);
-  background-image:
-    linear-gradient(var(--grid) 1px,transparent 1px),
-    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:34px 34px;
-  color:var(--ink);
-  font-family:var(--f-body);
-  font-size:var(--fs-body);
-  line-height:1.66;
-  font-weight:350;
-  -webkit-font-smoothing:antialiased;
-}
-img,svg{max-width:100%}
-a{color:var(--sig-a);text-underline-offset:3px;text-decoration-thickness:1px}
-a:hover{color:var(--ink)}
-:focus-visible{outline:2px solid var(--sig-a);outline-offset:3px;border-radius:2px}
- 
-.wrap{
-  max-width:var(--wrap);margin-inline:auto;
-  padding-left:max(20px,env(safe-area-inset-left,0px));
-  padding-right:max(20px,env(safe-area-inset-right,0px));
-}
-.prose{max-width:58ch}
- 
-h1,h2,h3{margin:0;font-family:var(--f-display);text-wrap:balance}
-h2{font-size:var(--fs-h2);font-weight:700;font-stretch:118%;letter-spacing:-0.012em}
-h3{font-size:1.02rem;font-weight:600;font-stretch:112%;letter-spacing:-0.004em}
- 
-.eyebrow{
-  margin:0;font-family:var(--f-mono);font-size:var(--fs-label);font-weight:500;
-  letter-spacing:0.17em;text-transform:uppercase;color:var(--muted);
-}
- 
-/* ---------- top bar ---------- */
-.topbar{
-  position:sticky;top:0;z-index:20;
-  border-bottom:1px solid var(--line);
-  background:color-mix(in srgb,var(--ground) 90%,transparent);
-  backdrop-filter:saturate(1.3) blur(8px);
-}
-.topbar .wrap{display:flex;align-items:center;gap:14px;padding-block:11px}
-.mark{
-  margin-right:auto;display:flex;align-items:center;gap:9px;
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.17em;
-  text-transform:uppercase;color:var(--ink);text-decoration:none;
-}
-.mark svg{width:17px;height:17px;flex:none}
-.topnav{display:flex;gap:17px}
-.topnav a{
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.12em;
-  text-transform:uppercase;color:var(--muted);text-decoration:none;
-}
-.topnav a:hover{color:var(--sig-a)}
-.tbtn{
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.12em;
-  text-transform:uppercase;background:transparent;color:var(--muted);
-  border:1px solid var(--line);border-radius:999px;padding:5px 11px;
-  cursor:pointer;line-height:1;
-}
-.tbtn:hover{color:var(--sig-a);border-color:var(--sig-a)}
-@media (max-width:660px){.topnav{display:none}}
- 
-/* ---------- hero ---------- */
-.hero{padding-block:clamp(40px,7vw,78px) clamp(34px,5vw,56px)}
-.hero h1{
-  font-size:var(--fs-display);font-weight:800;font-stretch:124%;
-  line-height:0.9;letter-spacing:-0.045em;margin:16px 0 0;
-}
-.hero h1 em{font-style:normal;display:block;color:var(--sig-a)}
-.fitwrap{
-  margin:26px 0 0;border:1px solid var(--line);border-radius:3px;
-  background:var(--panel);overflow:hidden;
-}
-#fit{display:block;width:100%;height:132px}
-.fitkey{
-  display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;
-  padding:7px 12px;border-top:1px solid var(--line);
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--muted);
-}
-.fitkey b{font-weight:500;color:var(--ink)}
-.lede{font-size:var(--fs-lede);margin:28px 0 0;color:var(--ink)}
-.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
-.pill{
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--muted);background:var(--panel);
-  border:1px solid var(--line);border-radius:999px;padding:6px 12px;
-}
-.pill.on{color:var(--sig-a);border-color:color-mix(in srgb,var(--sig-a) 50%,var(--line))}
-.pill.on::before{
-  content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
-  background:var(--sig-a);margin-right:8px;vertical-align:1px;
-}
- 
-/* ---------- sections ---------- */
-section{padding-block:clamp(40px,6vw,66px);border-top:1px solid var(--line)}
-.sec-head{display:flex;flex-direction:column;gap:7px;margin-bottom:28px}
- 
-/* ---------- projects ---------- */
-.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-@media (max-width:780px){.projects{grid-template-columns:1fr}}
-.card{
-  background:var(--panel);border:1px solid var(--line);border-radius:3px;
-  display:flex;flex-direction:column;min-width:0;overflow:hidden;
-}
-.card .viz{display:block;width:100%;height:104px;background:var(--panel-2);border-bottom:1px solid var(--line)}
-.card .body{padding:18px 18px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
-.card .num{
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.14em;color:var(--sig-b);
-}
-.card p{margin:0;font-size:var(--fs-small);color:var(--muted);line-height:1.6}
-.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px}
-.tag{
-  font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.03em;color:var(--ink);
-  background:color-mix(in srgb,var(--sig-a) 13%,transparent);border-radius:2px;padding:3px 7px;
-}
-.repo-note{margin:22px 0 0;font-size:var(--fs-small);color:var(--muted)}
- 
-/* ---------- skills ---------- */
-.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 30px}
-@media (max-width:860px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.skills{grid-template-columns:1fr}}
-.skills div{min-width:0}
-.skills h3{margin-bottom:5px}
-.skills p{margin:0;font-size:var(--fs-small);color:var(--muted)}
- 
-/* ---------- gantt timeline ---------- */
-.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:20px}
-.legend span{
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:7px;
-}
-.legend i{width:13px;height:5px;border-radius:2px;display:block}
-.gantt{position:relative;padding-bottom:26px}
-.g-row{margin-bottom:20px}
-.g-label{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline;margin-bottom:6px}
-.g-label strong{font-family:var(--f-display);font-weight:600;font-stretch:112%;font-size:1rem}
-.g-label span{
-  font-family:var(--f-mono);font-size:var(--fs-label);letter-spacing:0.07em;
-  color:var(--muted);font-variant-numeric:tabular-nums;
-}
-.g-track{
-  position:relative;height:26px;border-radius:2px;
-  background-image:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 16.6667%);
-  background-color:var(--panel);border:1px solid var(--line);
-}
-.g-bar{
-  position:absolute;top:5px;bottom:5px;border-radius:2px;
-  background:var(--c);
-}
-.g-bar.open{
-  background:linear-gradient(90deg,var(--c) 0%,var(--c) 78%,color-mix(in srgb,var(--c) 30%,transparent) 100%);
-}
-.g-now{
-  position:absolute;top:0;bottom:26px;width:1px;background:var(--sig-b);
-  opacity:0.75;
-}
-.g-now::after{
-  content:"NOW";position:absolute;top:-2px;left:5px;
-  font-family:var(--f-mono);font-size:0.6rem;letter-spacing:0.14em;color:var(--sig-b);
-}
-.g-axis{position:relative;height:18px;border-top:1px solid var(--line);margin-top:2px}
-.g-axis span{
-  position:absolute;top:4px;transform:translateX(-50%);
-  font-family:var(--f-mono);font-size:0.65rem;letter-spacing:0.09em;
-  color:var(--muted);font-variant-numeric:tabular-nums;
-}
-.g-axis span:first-child{transform:none}
-.g-axis span:last-child{transform:translateX(-100%)}
-.role-note{border-top:1px solid var(--line);padding-top:20px;max-width:64ch}
-.duties{margin:10px 0 0;padding-left:1.05em;font-size:var(--fs-small);color:var(--muted)}
-.duties li{margin-bottom:5px}
-.duties li::marker{color:var(--sig-b)}
- 
-/* ---------- contact ---------- */
-.contact-list{
-  list-style:none;margin:0;padding:0;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px 30px;
-}
-.contact-list li{min-width:0}
-.contact-list .k{
-  display:block;font-family:var(--f-mono);font-size:var(--fs-label);
-  letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;
-}
-.contact-list a,.contact-list span{font-size:var(--fs-small);overflow-wrap:anywhere}
- 
-footer{border-top:1px solid var(--line);padding-block:24px 40px}
-footer p{
-  margin:0;font-family:var(--f-mono);font-size:var(--fs-label);
-  letter-spacing:0.09em;color:var(--muted);
-}
- 
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-</style>
+
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
 </head>
+
 <body>
- 
+
+<div class="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
 <header class="topbar">
   <div class="wrap">
     <a class="mark" href="#top">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 50 L56 16" stroke="var(--sig-a)" stroke-width="4" fill="none"/><circle cx="19" cy="42" r="5" fill="var(--sig-b)"/><circle cx="34" cy="35" r="5" fill="var(--sig-a)"/><circle cx="47" cy="19" r="5" fill="var(--sig-a)"/></svg>
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M8 50 L56 16" stroke="var(--ink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="19" cy="42" r="5" fill="var(--sig-b)"/>
+        <circle cx="34" cy="35" r="5" fill="var(--sig-a)"/>
+        <circle cx="47" cy="19" r="5" fill="var(--sig-a)"/>
+      </svg>
       UB
     </a>
     <nav class="topnav" aria-label="Sections">
@@ -290,54 +48,64 @@ footer p{
       <a href="#timeline">Timeline</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="tbtn" id="themeBtn" type="button" aria-label="Switch colour theme">Theme</button>
+    <button class="btn" id="themeBtn" type="button" aria-pressed="true" aria-label="Switch between light and dark">Theme</button>
   </div>
 </header>
- 
-<main id="top">
- 
-  <div class="wrap hero">
+
+<main id="main">
+  <div class="wrap hero" id="top">
     <p class="eyebrow">Sydney · Australia</p>
     <h1>Upendra<em>Bhandari</em></h1>
- 
-    <div class="fitwrap">
-      <canvas id="fit" aria-label="A scatter of points with a least-squares line fitted through them, recalculated continuously."></canvas>
-      <div class="fitkey">
-        <span><b>y = mx + c</b> — least squares, refitted live</span>
-        <span>· <b id="fitm">m</b></span>
-        <span>· residual <b style="color:var(--sig-a)">above</b> / <b style="color:var(--sig-b)">below</b></span>
+
+    <!-- The plot is live: the line is a real least-squares fit of the points
+         drawn, recomputed every frame. Clicking adds a point. -->
+    <div class="plot">
+      <canvas id="fit" aria-label="A scatter plot with a least-squares regression line fitted through it. Click or tap to add a point and the line refits."></canvas>
+      <div class="plot-bar">
+        <div class="readouts">
+          <span>n = <b id="outN">40</b></span>
+          <span>m = <b id="outM">0.000</b></span>
+          <span>c = <b id="outC">0.000</b></span>
+          <span>R² = <b id="outR2">0.000</b></span>
+        </div>
+        <span class="plot-hint">Click the plot to add a point</span>
+        <button class="btn" id="addPoint" type="button">Add point</button>
+        <button class="btn" id="resetPlot" type="button">Reset</button>
       </div>
     </div>
- 
+
     <p class="lede prose">
-      I build models and data workflows that answer practical questions — classification,
-      forecasting, and the cleaning and feature work that has to happen before either is
-      worth trusting.
+      I build models and data workflows that answer practical questions —
+      classification, forecasting, and the cleaning and feature work that has to
+      happen before either is worth trusting.
     </p>
- 
+
     <div class="pills">
       <span class="pill on">Open to graduate roles &amp; internships</span>
       <span class="pill">MSc Data Science · 2027</span>
       <span class="pill">Python · AWS</span>
     </div>
   </div>
- 
-  <!-- ============== PROJECTS ==============
-       EDIT EACH CARD. Replace the paragraph with the real dataset, the method,
-       and one result (accuracy, AUC, forecast error, or what you found).
-       The small diagrams above each card illustrate the method, not your results.
-       To link a repo, add this just before </div> of a card's .body:
-         <a href="https://github.com/Upendra-B/REPO">Code</a>
-  ====================================== -->
+
+  <!-- ==================== PROJECTS ====================
+       EDIT EACH CARD BELOW. Replace the paragraph with:
+         1. the dataset (source, roughly how many records)
+         2. the method (which models or techniques)
+         3. one result (accuracy, AUC, forecast error, or the finding)
+       The diagrams illustrate the method, not your results, so they
+       stay honest until you fill the text in.
+       To add a repo link, put this just before the card's </div>:
+         <a href="https://github.com/Upendra-B/REPO-NAME">Code</a>
+  ================================================== -->
   <section id="projects">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Selected work</p>
         <h2>Projects</h2>
       </div>
- 
+
       <div class="projects">
- 
+
         <div class="card">
           <svg class="viz" viewBox="0 0 240 104" role="img" aria-label="Two clusters of points separated by a dashed decision boundary.">
             <g fill="var(--sig-a)" opacity="0.9">
@@ -350,54 +118,54 @@ footer p{
               <circle cx="186" cy="66" r="3.4"/><circle cx="142" cy="82" r="3.4"/><circle cx="178" cy="84" r="3.4"/>
               <circle cx="202" cy="56" r="3.4"/><circle cx="198" cy="80" r="3.4"/><circle cx="128" cy="70" r="3.4"/>
             </g>
-            <path d="M96 8 L150 96" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75"/>
+            <path class="react" d="M96 8 L150 96" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="5 4" fill="none" opacity="0.75"/>
           </svg>
           <div class="body">
             <span class="num">01</span>
             <h3>Classification modelling</h3>
             <p><!-- EDIT: what did you predict, on what data, how well did it score? -->
-              Supervised models that sort records into classes, built end to end: cleaning,
-              train/test splits, feature engineering, and several algorithms compared against
-              the same evaluation metrics.</p>
+              Supervised models that sort records into classes, built end to end:
+              cleaning, train/test splits, feature engineering, and several
+              algorithms compared against the same evaluation metrics.</p>
             <div class="stack">
               <span class="tag">Python</span><span class="tag">scikit-learn</span>
               <span class="tag">pandas</span><span class="tag">NumPy</span>
             </div>
           </div>
         </div>
- 
+
         <div class="card">
           <svg class="viz" viewBox="0 0 240 104" role="img" aria-label="A historical series continuing into a widening forecast cone past a vertical marker.">
             <path d="M150 6 L150 98" stroke="var(--line)" stroke-width="1"/>
-            <path d="M150 52 L232 26 L232 72 Z" fill="var(--sig-b)" opacity="0.18"/>
+            <path class="grow" d="M150 52 L232 26 L232 72 Z" fill="var(--sig-b)" opacity="0.18"/>
             <path d="M14 82 L30 74 L46 78 L62 64 L78 68 L94 54 L110 58 L126 46 L150 52"
                   stroke="var(--sig-a)" stroke-width="2" fill="none" stroke-linejoin="round"/>
-            <path d="M150 52 L232 40" stroke="var(--sig-b)" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+            <path class="grow" d="M150 52 L232 40" stroke="var(--sig-b)" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
             <circle cx="150" cy="52" r="3.4" fill="var(--sig-a)"/>
           </svg>
           <div class="body">
             <span class="num">02</span>
             <h3>Forecasting &amp; predictive analytics</h3>
             <p><!-- EDIT: what did you forecast, over what horizon, what was the error? -->
-              Statistical models fitted to historical series to project what comes next, with
-              trend and seasonality handled explicitly and accuracy measured against a
-              held-out period.</p>
+              Statistical models fitted to historical series to project what comes
+              next, with trend and seasonality handled explicitly and accuracy
+              measured against a held-out period.</p>
             <div class="stack">
               <span class="tag">Python</span><span class="tag">Statistics</span><span class="tag">Time series</span>
             </div>
           </div>
         </div>
- 
+
         <div class="card">
           <svg class="viz" viewBox="0 0 240 104" role="img" aria-label="A histogram with a smooth density curve drawn over it.">
-            <g fill="var(--sig-a)" opacity="0.55">
+            <g fill="var(--sig-a)" opacity="0.5">
               <rect x="20" y="84" width="18" height="14"/><rect x="42" y="72" width="18" height="26"/>
               <rect x="64" y="52" width="18" height="46"/><rect x="86" y="30" width="18" height="68"/>
               <rect x="108" y="22" width="18" height="76"/><rect x="130" y="38" width="18" height="60"/>
               <rect x="152" y="60" width="18" height="38"/><rect x="174" y="78" width="18" height="20"/>
               <rect x="196" y="90" width="18" height="8"/>
             </g>
-            <path d="M22 92 Q 60 88 78 58 T 117 20 T 160 56 T 214 90"
+            <path class="react" d="M22 92 Q 60 88 78 58 T 117 20 T 160 56 T 214 90"
                   stroke="var(--sig-b)" stroke-width="2" fill="none"/>
             <path d="M12 98 L228 98" stroke="var(--line)" stroke-width="1"/>
           </svg>
@@ -405,17 +173,17 @@ footer p{
             <span class="num">03</span>
             <h3>Exploratory analysis &amp; visualisation</h3>
             <p><!-- EDIT: which dataset, and what did you actually find in it? -->
-              Working through unfamiliar datasets to find the distributions, outliers and
-              relationships that matter, then turning them into figures a non-technical
-              reader can act on.</p>
+              Working through unfamiliar datasets to find the distributions,
+              outliers and relationships that matter, then turning them into
+              figures a non-technical reader can act on.</p>
             <div class="stack">
               <span class="tag">pandas</span><span class="tag">Matplotlib</span><span class="tag">Jupyter</span>
             </div>
           </div>
         </div>
- 
+
         <div class="card">
-          <svg class="viz" viewBox="0 0 240 104" role="img" aria-label="Four pipeline stages connected left to right by arrows: store, process, model, serve.">
+          <svg class="viz" viewBox="0 0 240 104" role="img" aria-label="Four pipeline stages connected left to right: store, clean, model, out.">
             <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--muted)" letter-spacing="0.6">
               <rect x="12" y="38" width="44" height="28" rx="3" fill="none" stroke="var(--sig-a)" stroke-width="1.4"/>
               <text x="34" y="56" text-anchor="middle">STORE</text>
@@ -426,7 +194,7 @@ footer p{
               <rect x="202" y="38" width="30" height="28" rx="3" fill="none" stroke="var(--sig-b)" stroke-width="1.4"/>
               <text x="217" y="56" text-anchor="middle">OUT</text>
             </g>
-            <g stroke="var(--ink)" stroke-width="1.3" opacity="0.6" fill="none">
+            <g class="react" stroke="var(--ink)" stroke-width="1.3" opacity="0.6" fill="none">
               <path d="M58 52 L70 52"/><path d="M66 48.5 L70 52 L66 55.5"/>
               <path d="M124 52 L136 52"/><path d="M132 48.5 L136 52 L132 55.5"/>
               <path d="M186 52 L198 52"/><path d="M194 48.5 L198 52 L194 55.5"/>
@@ -436,20 +204,21 @@ footer p{
             <span class="num">04</span>
             <h3>Cloud analytics workflow</h3>
             <p><!-- EDIT: which AWS services, and what did the pipeline actually do? -->
-              An analytics pipeline deployed on AWS, moving data from storage through
-              processing to output so the analysis runs on a schedule instead of by hand.</p>
+              An analytics pipeline deployed on AWS, moving data from storage
+              through processing to output so the analysis runs on a schedule
+              instead of by hand.</p>
             <div class="stack">
               <span class="tag">AWS</span><span class="tag">Data engineering</span><span class="tag">Python</span>
             </div>
           </div>
         </div>
- 
+
       </div>
- 
+
       <p class="repo-note">Code lives on <a href="https://github.com/Upendra-B">github.com/Upendra-B</a>.</p>
     </div>
   </section>
- 
+
   <section id="skills">
     <div class="wrap">
       <div class="sec-head">
@@ -485,22 +254,23 @@ footer p{
       </div>
     </div>
   </section>
- 
+
+  <!-- The timeline is a Gantt chart on a real date axis spanning 2022–2028.
+       Bar positions are percentages of that span, so the overlap between
+       work and study is accurate rather than illustrative. -->
   <section id="timeline">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Study &amp; work, to scale</p>
         <h2>Four years of both at once</h2>
       </div>
- 
+
       <div class="legend">
         <span><i style="background:var(--sig-a)"></i> Study</span>
         <span><i style="background:var(--sig-b)"></i> Work</span>
       </div>
- 
+
       <div class="gantt">
-        <div class="g-now" style="left:79.2%"></div>
- 
         <div class="g-row">
           <div class="g-label">
             <strong>Bachelor of Technology — IT / Cybersecurity</strong>
@@ -510,7 +280,7 @@ footer p{
             <div class="g-bar" style="--c:var(--sig-a);left:8.3%;width:47.2%"></div>
           </div>
         </div>
- 
+
         <div class="g-row">
           <div class="g-label">
             <strong>Internal Safety &amp; Yard Operations</strong>
@@ -520,7 +290,7 @@ footer p{
             <div class="g-bar open" style="--c:var(--sig-b);left:12.5%;width:66.7%"></div>
           </div>
         </div>
- 
+
         <div class="g-row">
           <div class="g-label">
             <strong>Master of Data Science</strong>
@@ -530,7 +300,9 @@ footer p{
             <div class="g-bar" style="--c:var(--sig-a);left:58.3%;width:31.9%"></div>
           </div>
         </div>
- 
+
+        <div class="g-nowlabel" aria-hidden="true">NOW</div>
+
         <div class="g-axis">
           <span style="left:0%">2022</span>
           <span style="left:16.667%">2023</span>
@@ -541,7 +313,7 @@ footer p{
           <span style="left:100%">2028</span>
         </div>
       </div>
- 
+
       <div class="role-note">
         <p class="eyebrow">What the Amazon role involves</p>
         <ul class="duties">
@@ -553,7 +325,7 @@ footer p{
       </div>
     </div>
   </section>
- 
+
   <section id="contact">
     <div class="wrap">
       <div class="sec-head">
@@ -568,114 +340,16 @@ footer p{
       </ul>
     </div>
   </section>
- 
 </main>
- 
+
 <footer>
-  <div class="wrap"><p>Upendra Bhandari — upendrabhandari.com.np</p></div>
+  <div class="wrap">
+    <p>Upendra Bhandari · upendrabhandari.com.np · <span id="year">2026</span></p>
+  </div>
 </footer>
- 
-<script>
-(function () {
-  var root = document.documentElement;
-  var btn = document.getElementById('themeBtn');
-  try {
-    var saved = localStorage.getItem('theme');
-    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
-  } catch (e) {}
- 
-  var pal = {};
-  function refresh() {
-    var cs = getComputedStyle(root);
-    pal.ink = cs.getPropertyValue('--ink').trim();
-    pal.line = cs.getPropertyValue('--line').trim();
-    pal.a = cs.getPropertyValue('--sig-a').trim();
-    pal.b = cs.getPropertyValue('--sig-b').trim();
-  }
-  refresh();
- 
-  btn.addEventListener('click', function () {
-    var dark = root.getAttribute('data-theme') === 'dark' ||
-      (!root.hasAttribute('data-theme') &&
-        !window.matchMedia('(prefers-color-scheme: light)').matches);
-    var next = dark ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch (e) {}
-    setTimeout(refresh, 20);
-  });
-  try {
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function () {
-      setTimeout(refresh, 20);
-    });
-  } catch (e) {}
- 
-  /* Hero: a genuine least-squares fit through the drawn points, refitted each frame. */
-  var cv = document.getElementById('fit');
-  if (!cv || !cv.getContext) return;
-  var ctx = cv.getContext('2d');
-  var mEl = document.getElementById('fitm');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var N = 46, pts = [], W = 0, H = 0;
- 
-  for (var i = 0; i < N; i++) {
-    var x = i / (N - 1);
-    pts.push({ x: x, base: 0.20 + 0.58 * x, n: (Math.random() * 2 - 1) * 0.13, t: Math.random() * 6.283 });
-  }
- 
-  function size() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    W = cv.clientWidth; H = cv.clientHeight;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
- 
-  function draw(time) {
-    if (!W || !H) return;
-    ctx.clearRect(0, 0, W, H);
-    var padX = 14, padY = 12, pw = W - padX * 2, ph = H - padY * 2;
- 
-    ctx.strokeStyle = pal.line; ctx.lineWidth = 1;
-    for (var g = 0; g <= 4; g++) {
-      var gy = Math.round(padY + ph * g / 4) + 0.5;
-      ctx.beginPath(); ctx.moveTo(padX, gy); ctx.lineTo(W - padX, gy); ctx.stroke();
-    }
- 
-    var sx = 0, sy = 0, sxx = 0, sxy = 0, ys = [];
-    for (var i = 0; i < N; i++) {
-      var p = pts[i];
-      var wob = reduce ? 0 : Math.sin(time / 2400 + p.t) * 0.03;
-      var y = p.base + p.n + wob;
-      ys.push(y); sx += p.x; sy += y; sxx += p.x * p.x; sxy += p.x * y;
-    }
-    var den = N * sxx - sx * sx;
-    var m = den === 0 ? 0 : (N * sxy - sx * sy) / den;
-    var c = (sy - m * sx) / N;
- 
-    for (var j = 0; j < N; j++) {
-      var q = pts[j], yy = ys[j];
-      ctx.fillStyle = yy > (m * q.x + c) ? pal.a : pal.b;
-      ctx.globalAlpha = 0.88;
-      ctx.beginPath();
-      ctx.arc(padX + q.x * pw, padY + ph * (1 - yy), 2.7, 0, 6.283);
-      ctx.fill();
-    }
-    ctx.globalAlpha = 1;
- 
-    ctx.strokeStyle = pal.ink; ctx.lineWidth = 1.6;
-    ctx.beginPath();
-    ctx.moveTo(padX, padY + ph * (1 - c));
-    ctx.lineTo(padX + pw, padY + ph * (1 - (m + c)));
-    ctx.stroke();
- 
-    if (mEl) mEl.textContent = 'm = ' + m.toFixed(3);
-  }
- 
-  function loop(t) { draw(t); requestAnimationFrame(loop); }
-  size();
-  if (reduce) { draw(0); } else { requestAnimationFrame(loop); }
-  window.addEventListener('resize', function () { size(); if (reduce) draw(0); });
-})();
-</script>
- 
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/regression.js"></script>
+<script src="assets/js/ui.js"></script>
 </body>
 </html>

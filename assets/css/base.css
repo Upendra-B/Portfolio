@@ -1,0 +1,180 @@
+/* ============================================================
+   base.css — reset, typography and layout primitives
+   Anything reusable across more than one section lives here.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* The faint plot grid behind everything — the page is a sheet of
+     graph paper, which is where the whole visual idea starts. */
+  background-color: var(--ground);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 34px 34px;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--fs-body);
+  font-weight: 350;
+  line-height: 1.66;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg, canvas { max-width: 100%; }
+
+a {
+  color: var(--sig-a);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover { color: var(--ink); }
+
+:focus-visible {
+  outline: 2px solid var(--sig-a);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip link for keyboard and screen-reader users. */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--sig-a);
+  padding: 10px 16px;
+  z-index: 100;
+}
+.skip:focus { left: 12px; top: 12px; }
+
+/* --- layout ----------------------------------------------- */
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-left:  max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+.prose { max-width: 58ch; }
+
+section {
+  padding-block: clamp(40px, 6vw, 68px);
+  border-top: 1px solid var(--line);
+}
+
+/* --- typography -------------------------------------------- */
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--f-display);
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  font-stretch: 118%;
+  letter-spacing: -0.012em;
+}
+
+h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  font-stretch: 112%;
+  letter-spacing: -0.004em;
+}
+
+/* Small uppercase mono label, used above every section heading. */
+.eyebrow {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* A tick mark, as on an axis — the eyebrow is a labelled gradation. */
+.eyebrow::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--sig-a);
+  flex: none;
+}
+
+.sec-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+/* --- shared pieces ------------------------------------------ */
+
+.pill {
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+.pill.on {
+  color: var(--sig-a);
+  border-color: color-mix(in srgb, var(--sig-a) 50%, var(--line));
+}
+.pill.on::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sig-a);
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+
+.btn {
+  font-family: var(--f-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.btn:hover {
+  color: var(--sig-a);
+  border-color: var(--sig-a);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

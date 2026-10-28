@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="A fitted line through three points">
+  <rect width="64" height="64" rx="12" fill="#080D0F"/>
+  <path d="M9 50 L55 16" stroke="#EAF1F1" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="19" cy="43" r="5" fill="#F0A93F"/>
+  <circle cx="33" cy="34" r="5" fill="#4FD0DE"/>
+  <circle cx="47" cy="22" r="5" fill="#4FD0DE"/>
+</svg>
