@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Upendra Bhandari</title>
+<meta name="description" content="Upendra Bhandari — Data Science Master's student in Sydney working in machine learning, predictive analytics and cloud data engineering.">
+<meta name="author" content="Upendra Bhandari">
+
+<!-- Social preview. EDIT: change the URL once the site is live. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Upendra Bhandari — Data Science">
+<meta property="og:description" content="Machine learning, predictive analytics and cloud data engineering. Sydney, Australia.">
+<meta property="og:url" content="https://upendrabhandari.com.np/">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E6F78'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='28' fill='%23F2F5F5' text-anchor='middle'%3EUB%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+/* Layout: one narrow reading column on a faint plotting grid; mono eyebrows and
+   hairline rules mark each section; projects sit in a two-up grid that stacks on phones. */
+:root{
+  --paper:#F3F6F6;
+  --panel:#FFFFFF;
+  --ink:#111A1C;
+  --muted:#5C6B6E;
+  --line:#D5DEDE;
+  --grid:#E3EAEA;
+  --accent:#0E6F78;
+  --accent-2:#B4542F;
+
+  --font-display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --font-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --font-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+
+  --fs-display:clamp(2.7rem,8vw,4.5rem);
+  --fs-lede:clamp(1.05rem,2.2vw,1.3rem);
+  --fs-h2:clamp(1.4rem,3vw,1.8rem);
+  --fs-h3:1.08rem;
+  --fs-body:1.0625rem;
+  --fs-small:0.9rem;
+  --fs-label:0.72rem;
+
+  --wrap:1040px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1415;
+    --panel:#141E1F;
+    --ink:#E6EDED;
+    --muted:#95A6A8;
+    --line:#243231;
+    --grid:#182322;
+    --accent:#45BCC4;
+    --accent-2:#E0845E;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1415;
+  --panel:#141E1F;
+  --ink:#E6EDED;
+  --muted:#95A6A8;
+  --line:#243231;
+  --grid:#182322;
+  --accent:#45BCC4;
+  --accent-2:#E0845E;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:30px 30px;
+  background-position:center top;
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:var(--fs-body);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-left:max(20px,env(safe-area-inset-left,0px));
+  padding-right:max(20px,env(safe-area-inset-right,0px));
+}
+.prose{max-width:62ch}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:700;text-wrap:balance;margin:0}
+h2{font-size:var(--fs-h2);letter-spacing:-0.015em}
+h3{font-size:var(--fs-h3);font-weight:500;letter-spacing:-0.005em}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:var(--fs-label);
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0;
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:saturate(1.2) blur(6px);
+  position:sticky;top:0;z-index:10;
+}
+.topbar .wrap{
+  display:flex;align-items:center;gap:16px;
+  padding-block:10px;
+}
+.mark{
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--ink);text-decoration:none;margin-right:auto;
+}
+.topnav{display:flex;gap:18px;flex-wrap:wrap}
+.topnav a{
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);text-decoration:none;
+}
+.topnav a:hover{color:var(--accent)}
+.theme-btn{
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;
+  text-transform:uppercase;
+  background:transparent;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;
+  padding:5px 11px;cursor:pointer;line-height:1;
+}
+.theme-btn:hover{color:var(--accent);border-color:var(--accent)}
+@media (max-width:640px){ .topnav{display:none} }
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(48px,9vw,96px) clamp(36px,6vw,64px)}
+.hero h1{
+  font-size:var(--fs-display);
+  line-height:0.98;
+  letter-spacing:-0.035em;
+  margin:14px 0 0;
+}
+.hero h1 .surname{color:var(--accent);display:block}
+.lede{
+  font-size:var(--fs-lede);
+  color:var(--ink);
+  max-width:46ch;
+  margin:22px 0 0;
+}
+.meta-row{
+  display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;
+  margin-top:26px;
+}
+.pill{
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;
+  background:var(--panel);
+}
+.pill.live{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.pill.live::before{
+  content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);margin-right:7px;vertical-align:1px;
+}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(38px,6vw,62px);border-top:1px solid var(--line)}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin-bottom:26px}
+
+/* ---------- projects ---------- */
+.projects{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;
+}
+@media (max-width:760px){ .projects{grid-template-columns:1fr} }
+.card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:22px 20px;
+  display:flex;flex-direction:column;gap:10px;
+  min-width:0;
+}
+.card .num{
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.1em;
+  color:var(--accent-2);
+}
+.card p{margin:0;font-size:var(--fs-small);color:var(--muted);line-height:1.6}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px}
+.tag{
+  font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.04em;
+  color:var(--ink);background:color-mix(in srgb,var(--accent) 11%,transparent);
+  border-radius:3px;padding:3px 7px;
+}
+.repo-note{
+  margin-top:22px;font-size:var(--fs-small);color:var(--muted);
+}
+
+/* ---------- skills ---------- */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 28px}
+.skills div{min-width:0}
+.skills h3{margin-bottom:6px}
+.skills p{margin:0;font-size:var(--fs-small);color:var(--muted)}
+
+/* ---------- timeline ---------- */
+.entry{
+  display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 26px;
+  padding-block:18px;border-top:1px solid var(--line);
+}
+.entry:first-of-type{border-top:0;padding-top:0}
+.entry .when{
+  font-family:var(--font-mono);font-size:var(--fs-label);letter-spacing:0.06em;
+  color:var(--muted);padding-top:5px;font-variant-numeric:tabular-nums;
+}
+.entry .where{font-size:var(--fs-small);color:var(--muted);margin:2px 0 0}
+.entry ul{margin:10px 0 0;padding-left:1.05em;font-size:var(--fs-small);color:var(--muted)}
+.entry li{margin-bottom:5px}
+.entry li::marker{color:var(--accent)}
+@media (max-width:640px){
+  .entry{grid-template-columns:1fr;gap:2px}
+  .entry .when{padding-top:0;margin-bottom:4px}
+}
+
+/* ---------- contact ---------- */
+.contact-list{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 28px;
+}
+.contact-list li{min-width:0}
+.contact-list .k{
+  display:block;font-family:var(--font-mono);font-size:var(--fs-label);
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;
+}
+.contact-list a,.contact-list span{font-size:var(--fs-small);overflow-wrap:anywhere}
+
+footer{border-top:1px solid var(--line);padding-block:26px 40px}
+footer p{
+  margin:0;font-family:var(--font-mono);font-size:var(--fs-label);
+  letter-spacing:0.06em;color:var(--muted);
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#top">UB</a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">Theme</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="wrap hero">
+    <p class="eyebrow">Sydney, Australia</p>
+    <h1>Upendra<span class="surname">Bhandari</span></h1>
+    <p class="lede prose">
+      I build models and data workflows that answer practical questions — classification,
+      forecasting, and the cleaning and feature work that has to happen before either one is worth trusting.
+    </p>
+    <div class="meta-row">
+      <span class="pill live">Open to graduate roles &amp; internships</span>
+      <span class="pill">MSc Data Science · 2027</span>
+      <span class="pill">Python · AWS</span>
+    </div>
+  </div>
+
+  <!-- ===================== PROJECTS =====================
+       EDIT THIS SECTION FIRST. Replace each card's text with the real
+       dataset, the method you used, and the result you got. One concrete
+       number ("0.87 AUC on 50k records") is worth more than a paragraph.
+       To link a repo, put this inside a card, just above </div>:
+         <a href="https://github.com/Upendra-B/REPO-NAME">View the code</a>
+  ==================================================== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+      </div>
+
+      <div class="projects">
+
+        <div class="card">
+          <span class="num">01</span>
+          <h3>Classification modelling</h3>
+          <p><!-- EDIT: what were you predicting, on what data, and how well did it do? -->
+            Supervised models that sort records into categories, built end to end:
+            cleaning, train/test splits, feature engineering, and comparison of several
+            algorithms against the same evaluation metrics.</p>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">scikit-learn</span>
+            <span class="tag">pandas</span><span class="tag">NumPy</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="num">02</span>
+          <h3>Forecasting &amp; predictive analytics</h3>
+          <p><!-- EDIT: what did you forecast, over what period, and what was the error? -->
+            Statistical models fitted to historical series to project what comes next,
+            with trend and seasonality handled explicitly and forecast accuracy measured
+            against a held-out period.</p>
+          <div class="stack">
+            <span class="tag">Python</span><span class="tag">Statistics</span>
+            <span class="tag">Time series</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="num">03</span>
+          <h3>Exploratory analysis &amp; visualisation</h3>
+          <p><!-- EDIT: which dataset, and what did you actually find in it? -->
+            Working through unfamiliar datasets to find the distributions, outliers and
+            relationships that matter, then turning them into figures a non-technical
+            reader can act on.</p>
+          <div class="stack">
+            <span class="tag">pandas</span><span class="tag">Matplotlib</span>
+            <span class="tag">Jupyter</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="num">04</span>
+          <h3>Cloud analytics workflow</h3>
+          <p><!-- EDIT: which AWS services, and what did the pipeline do? -->
+            An analytics pipeline deployed on AWS, moving data from storage through
+            processing to output so the analysis runs on a schedule instead of by hand.</p>
+          <div class="stack">
+            <span class="tag">AWS</span><span class="tag">Data engineering</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="repo-note">
+        Code for these lives on <a href="https://github.com/Upendra-B">github.com/Upendra-B</a>.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Toolkit</p>
+        <h2>Skills</h2>
+      </div>
+      <div class="skills">
+        <div>
+          <h3>Languages &amp; libraries</h3>
+          <!-- EDIT: add SQL here as soon as you have it. Almost every data job screens for it. -->
+          <p>Python, pandas, NumPy, scikit-learn, Matplotlib, Jupyter Notebook</p>
+        </div>
+        <div>
+          <h3>Machine learning</h3>
+          <p>Classification, forecasting, predictive analytics, statistical modelling, model evaluation</p>
+        </div>
+        <div>
+          <h3>Analysis</h3>
+          <p>Exploratory data analysis, feature engineering, data cleaning, data visualisation</p>
+        </div>
+        <div>
+          <h3>Cloud &amp; engineering</h3>
+          <p>Amazon Web Services (AWS), cloud-based data engineering, deploying analytics workflows</p>
+        </div>
+        <div>
+          <h3>Security</h3>
+          <p>Information security and cybersecurity fundamentals from undergraduate study</p>
+        </div>
+        <div>
+          <h3>Working style</h3>
+          <p>Cross-team communication, safety and compliance procedures, quality inspection, detail accuracy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="background">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Study &amp; work</p>
+        <h2>Background</h2>
+      </div>
+
+      <div class="entry">
+        <div class="when">Jul 2025 — Jun 2027</div>
+        <div>
+          <h3>Master of Data Science</h3>
+          <p class="where">Charles Darwin University</p>
+          <ul>
+            <li>Machine learning, statistical modelling and predictive analytics</li>
+            <li>Cloud-based data engineering and data visualisation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Jul 2022 — May 2025</div>
+        <div>
+          <h3>Bachelor of Technology — Information Technology / Cybersecurity</h3>
+          <p class="where">Kent Institute Australia</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Oct 2022 — Present</div>
+        <div>
+          <h3>Internal Safety &amp; Yard Operations</h3>
+          <p class="where">Amazon Fulfilment Centre · Australia</p>
+          <ul>
+            <li>Manage trailer movements and loading dock operations under transportation yard procedures</li>
+            <li>Run transportation safety inspections before every loading and unloading activity</li>
+            <li>Coordinate drivers, forklift operators and gatehouse staff by radio in real time</li>
+            <li>Inspect returned electronic devices and verify functionality to support inventory recovery</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Contact</h2>
+      </div>
+      <ul class="contact-list">
+        <li>
+          <span class="k">Email</span>
+          <a href="mailto:upendrabhandari98219@gmail.com">upendrabhandari98219@gmail.com</a>
+        </li>
+        <li>
+          <span class="k">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/upendra-bhandari-63743a283/">upendra-bhandari</a>
+        </li>
+        <li>
+          <span class="k">GitHub</span>
+          <a href="https://github.com/Upendra-B">Upendra-B</a>
+        </li>
+        <li>
+          <span class="k">Based in</span>
+          <span>Sydney, New South Wales</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Upendra Bhandari — upendrabhandari.com.np</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('themeBtn');
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+
+  btn.addEventListener('click', function () {
+    var isDark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.hasAttribute('data-theme') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
